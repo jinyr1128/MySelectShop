@@ -8,6 +8,8 @@ import com.myselectshop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api")
@@ -20,8 +22,16 @@ public class ProductController {
         return productService.createProduct(requestDto);
     }
 
+    // 관심 상품 희망 최저가 등록하기
     @PutMapping("/products/{id}")
-    public ProductRepository updateProduct9(@PathVariable Long id,@RequestBody ProductMypriceRequestDto requestDto){
-        return  productService.updateProduct(id, requestDto);
+    public ProductResponseDto updateProduct(@PathVariable Long id, @RequestBody ProductMypriceRequestDto requestDto) {
+        // 응답 보내기
+        return productService.updateProduct(id, requestDto);
+    }
+    // 관심 상품 조회하기
+    @GetMapping("/products")
+    public List<ProductResponseDto> getProducts() {
+        // 응답 보내기
+        return productService.getProducts();
     }
 }
