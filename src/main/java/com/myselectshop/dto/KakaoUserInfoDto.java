@@ -15,4 +15,4 @@ public class KakaoUserInfoDto {
         this.nickname = nickname;
         this.email = email;
     }
-}}
+}
