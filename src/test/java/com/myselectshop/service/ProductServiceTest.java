@@ -51,7 +51,7 @@ class ProductServiceTest {
 
         Product product = new Product(requestProductDto, user);
 
-        ProductService productService = new ProductService(productRepository, productFolderRepository, folderRepository);
+        ProductService productService = new ProductService(productRepository, folderRepository, productFolderRepository);
 
         given(productRepository.findById(productId)).willReturn(Optional.of(product));
 
